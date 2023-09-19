@@ -1,0 +1,55 @@
+
+{% extends 'layout.html' %} 
+
+{% block content %}
+
+
+{% load static %}
+
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src="{% static 'portafolio/DBZS.png' %}" alt="" width="300" height="400">
+
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1>DRAGON BALL <strong>Z</strong></h1>
+        <h3>Muchas sagas por disfrutar!</h3>
+        <p>La trama de Dragon Ball Z se centra en la vida adulta de Son Goku, quien tendrá que 
+            defender la tierra de los numerosos villanos que amenazan con destruirla. Además, la serie trama de forma 
+            paralela la madurez de su hijo Gohan. La producción destaca por tener un tono más serio que su predecesora. Actualmente
+            tiene una nueva version llamada Dragon ball super que es una continuación directa despues de los acontecimientos de Z
+        </p>
+        <a href="{% static 'portafolio/Son goku.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+
+
+
+    </div>
+</header>
+
+
+<div class="row my-4 text-center">
+    <h3> SAGAS</h3>
+    <p>Hechale un vistazo a cada saga</p>
+    {% for project in projects %}
+    
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project">
+            <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
+            <div class="card-body">
+                <h2>{{project.title}}</h2>
+                <p>{{project.description}}</p>
+                
+
+    {% if project.url %}
+    <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+
+    {% endif %} 
+            </div>
+        </div>
+    </div>
+
+
+{% endfor %} 
+{% endblock %} 
+</div>
